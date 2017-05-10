@@ -27,7 +27,7 @@
 			
 			$query = 'SELECT SQL_CACHE countries_code, countries_telephone_international_dialling_code, countries_telephone_trunk_prefix, countries_telephone_local_length
 			FROM countries WHERE countries_code=:countries_code';
-			$param = array(':countries_code' => SqlPreventInjection($current_country_code));
+			$param = array(':countries_code' => $current_country_code);
 			$val = Database::GetInstance()->FetchOne($query, $param);
 			if(isset($val['countries_telephone_international_dialling_code'])){
 				#region International Dialing Code
